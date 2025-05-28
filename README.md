@@ -1,4 +1,4 @@
-#TESTING LOVEABLE IT SUCKS
+#TESTED LOVEABLE AND IT SUCKS
 # Plotify - Interactive Story Builder
 
 Plotify is a web application for creating and managing interactive stories. Users can create accounts, write stories, manage characters, and build collaborative storytelling experiences.
