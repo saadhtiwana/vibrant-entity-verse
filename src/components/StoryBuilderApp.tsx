@@ -2,7 +2,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Toaster } from 'react-hot-toast';
 
 // Components
 import Navbar from './layout/Navbar';
@@ -67,7 +66,6 @@ function StoryBuilderApp() {
               />
             </Routes>
           </main>
-          <Toaster position="top-right" />
         </div>
       </AuthProvider>
     </QueryClientProvider>

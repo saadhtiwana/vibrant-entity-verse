@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import { useToast } from '@/hooks/use-toast';
 
 interface User {
   id: string;
@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
+  const { toast } = useToast();
 
   // Set up axios interceptor
   useEffect(() => {
@@ -75,11 +76,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setToken(newToken);
       setUser(userData);
       
-      toast.success('Login successful!');
+      toast({
+        title: "Success",
+        description: "Login successful!",
+      });
       return { success: true };
     } catch (error: any) {
       const message = error.response?.data?.message || 'Login failed';
-      toast.error(message);
+      toast({
+        title: "Error",
+        description: message,
+        variant: "destructive",
+      });
       return { success: false, error: message };
     }
   };
@@ -94,11 +102,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setToken(newToken);
       setUser(newUser);
       
-      toast.success('Registration successful!');
+      toast({
+        title: "Success",
+        description: "Registration successful!",
+      });
       return { success: true };
     } catch (error: any) {
       const message = error.response?.data?.message || 'Registration failed';
-      toast.error(message);
+      toast({
+        title: "Error",
+        description: message,
+        variant: "destructive",
+      });
       return { success: false, error: message };
     }
   };
@@ -108,7 +123,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setToken(null);
     setUser(null);
     delete axios.defaults.headers.common['Authorization'];
-    toast.success('Logged out successfully');
+    toast({
+      title: "Success",
+      description: "Logged out successfully",
+    });
   };
 
   const value = {
