@@ -27,7 +27,7 @@ const queryClient = new QueryClient({
   },
 });
 
-function StoryBuilderApp() {
+function PlotifyApp() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
@@ -72,4 +72,4 @@ function StoryBuilderApp() {
   );
 }
 
-export default StoryBuilderApp;
+export default PlotifyApp;

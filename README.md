@@ -1,73 +1,171 @@
-# Welcome to your Lovable project
 
-## Project info
+# Plotify - Interactive Story Builder
 
-**URL**: https://lovable.dev/projects/f8378071-89e4-4a17-808e-9b389cf67506
+Plotify is a web application for creating and managing interactive stories. Users can create accounts, write stories, manage characters, and build collaborative storytelling experiences.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- User authentication (login/register)
+- Story creation and management
+- Character development
+- Interactive story reading
+- User dashboard
+- Profile management
+- Responsive design
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f8378071-89e4-4a17-808e-9b389cf67506) and start prompting.
+- **Frontend**: React 18, TypeScript, Tailwind CSS
+- **UI Components**: Shadcn/ui, Radix UI
+- **State Management**: TanStack Query (React Query)
+- **Routing**: React Router DOM
+- **Icons**: Lucide React
+- **Build Tool**: Vite
+- **Backend**: Node.js, Express, MongoDB (separate backend required)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started with VS Code
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (version 16 or higher)
+- npm or yarn package manager
+- VS Code editor
+- Git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation & Setup
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd plotify
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Set up VS Code extensions (recommended)**
+   - ES7+ React/Redux/React-Native snippets
+   - TypeScript Importer
+   - Tailwind CSS IntelliSense
+   - Auto Rename Tag
+   - Bracket Pair Colorizer
+   - GitLens
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **VS Code workspace settings**
+   Create `.vscode/settings.json` in your project root:
+   ```json
+   {
+     "typescript.preferences.importModuleSpecifier": "relative",
+     "editor.codeActionsOnSave": {
+       "source.organizeImports": true
+     },
+     "editor.formatOnSave": true,
+     "files.associations": {
+       "*.css": "tailwindcss"
+     }
+   }
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open in VS Code**
+   ```bash
+   code .
+   ```
+
+### Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── auth/           # Authentication components
+│   ├── layout/         # Layout components (Navbar, etc.)
+│   └── ui/             # Shadcn/ui components
+├── contexts/           # React contexts (Auth, etc.)
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── pages/              # Main page components
+└── App.tsx             # Main application component
 ```
 
-**Edit a file directly in GitHub**
+### Development Workflow
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Running the project**
+   ```bash
+   npm run dev          # Start development server
+   npm run build        # Build for production
+   npm run preview      # Preview production build
+   ```
 
-**Use GitHub Codespaces**
+2. **VS Code debugging**
+   - Use the built-in terminal: `Ctrl+` (backtick)
+   - Set breakpoints in your code
+   - Use the integrated debugger for React components
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3. **Working with components**
+   - Components are in `src/components/`
+   - Pages are in `src/pages/`
+   - Use TypeScript for type safety
+   - Follow the existing naming conventions
 
-## What technologies are used for this project?
+4. **Styling**
+   - Uses Tailwind CSS for styling
+   - Shadcn/ui components for consistent design
+   - Responsive design with mobile-first approach
 
-This project is built with:
+### Environment Setup
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Create a `.env` file in the root directory:
+```
+VITE_API_URL=http://localhost:5000/api
+```
 
-## How can I deploy this project?
+### Backend Setup (Required)
 
-Simply open [Lovable](https://lovable.dev/projects/f8378071-89e4-4a17-808e-9b389cf67506) and click on Share -> Publish.
+This frontend requires a separate backend server. The backend should provide:
+- Authentication endpoints (`/api/auth/login`, `/api/auth/register`, `/api/auth/me`)
+- Story management endpoints
+- User management endpoints
 
-## Can I connect a custom domain to my Lovable project?
+### Common VS Code Tasks
 
-Yes, you can!
+- **Create new component**: Right-click in `src/components/` → New File
+- **Import management**: Use `Ctrl+Shift+O` to organize imports
+- **Find references**: `F12` or `Ctrl+Click` on any function/component
+- **Rename symbol**: `F2` on any variable/function name
+- **Format document**: `Shift+Alt+F`
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Troubleshooting
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. **Module not found errors**: Check import paths and ensure files exist
+2. **TypeScript errors**: Check type definitions and interfaces
+3. **Build errors**: Run `npm run build` to see detailed error messages
+4. **Hot reload issues**: Restart the dev server with `npm run dev`
+
+### Contributing
+
+1. Create a new branch for your feature
+2. Make your changes
+3. Test thoroughly
+4. Submit a pull request
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+For questions or support, please refer to the project documentation or create an issue in the repository.
